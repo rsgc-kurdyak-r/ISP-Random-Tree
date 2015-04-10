@@ -5,17 +5,16 @@
 // Have the trunk done, making the limbs randomly
 
 // Make values for the branches
-// x for branches closest to the trunk, then y, then z
-
-
 
 float bigBranch = random(50, 70);
 float medBranch = random(20, 40);
 float smallBranch = random(5, 15);
 
+
+int [] x = new int(60);
 // Make the trunk
 
-//void setup() {
+void setup() {
   size(300, 300);
   // The curved parts of the trunk base
   noFill();
@@ -48,4 +47,7 @@ float smallBranch = random(5, 15);
   
   line(170, 270, 165, 150);
   
-//}
+}
+
+void draw() {
+  
