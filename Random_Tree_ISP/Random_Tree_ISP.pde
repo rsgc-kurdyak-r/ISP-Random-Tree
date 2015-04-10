@@ -20,22 +20,32 @@ float smallBranch = random(5, 15);
   // The curved parts of the trunk base
   noFill();
   beginShape();
-  curveVertex(-100, 400);
-  curveVertex(100, 300);
-  curveVertex(110, 270);
-  curveVertex(-100, 200);
+  curveVertex(120, 300);
+  curveVertex(120, 300);
+  curveVertex(122, 298);
+  curveVertex(124, 296);
+  curveVertex(126, 291);
+  curveVertex(128, 285);
+  curveVertex(130, 270);
+  curveVertex(130, 270);
+  endShape();
+
+  beginShape();
+  curveVertex(170, 270);
+  curveVertex(170, 270);
+  curveVertex(172, 285);
+  curveVertex(174, 291);
+  curveVertex(176, 296);
+  curveVertex(178, 298);
+  curveVertex(180, 300);
+  curveVertex(180, 300);
   endShape();
   
-  beginShape();
-  curveVertex(400, 400);
-  curveVertex(200, 300);
-  curveVertex(190, 270);
-  curveVertex(400, 200);
   
   // The mid part of the trunk
   
-  line(110, 270, 115, 150);
+  line(130, 270, 135, 150);
   
-  line(190, 270, 185, 150);
+  line(170, 270, 165, 150);
   
 //}
