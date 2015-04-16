@@ -6,13 +6,31 @@
 
 // Make values for the branches
 
-float bigBranch = random(50, 70);
-float medBranch = random(20, 40);
-float smallBranch = random(5, 15);
+//int [] x = new int [100]; // creates an array with 10 elements
+
+//void setup() {
+  //size(100, 100);
+
+//int counter = 0;
+
+//while (counter < 100) {
+ //x[counter] = counter * 10;
+ 
+  //counter = counter + 1;
+ 
+//}
+
+//}
+
+//void draw() {
+  
+float bigBranchLength = random(50, 70);
+float medBranchLength = random(20, 40);
+float smallBranchLength = random(5, 15);
 
 
-int [] x = new int(8);
-int [] y = new int(8);
+int [] bigBranchX = new int[8]; 
+int [] bigBranchY = new int[8]; // x- and y-values for the big branches
 // Make the trunk
 
 void setup() {
