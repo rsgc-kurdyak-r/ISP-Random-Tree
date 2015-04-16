@@ -11,7 +11,8 @@ float medBranch = random(20, 40);
 float smallBranch = random(5, 15);
 
 
-int [] x = new int(60);
+int [] x = new int(8);
+int [] y = new int(8);
 // Make the trunk
 
 void setup() {
@@ -50,4 +51,6 @@ void setup() {
 }
 
 void draw() {
+ 
   
+}
