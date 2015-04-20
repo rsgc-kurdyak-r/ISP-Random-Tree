@@ -1,26 +1,28 @@
 ;// Robert Kurdyak
 // March 27, 2015
 
-// Make a tree
-// Have the trunk done, making the limbs randomly
-
-// Make values for the branches
-
-//int [] x = new int [100]; // creates an array with 10 elements
-
 //void setup() {
-  //size(100, 100);
-
-//int counter = 0;
-
-//while (counter < 100) {
- //x[counter] = counter * 10;
- 
-  //counter = counter + 1;
- 
+  //size(640, 360);
+  //noStroke();
+  //noLoop();
 //}
 
+//void draw() {
+  //drawCircle(width/2, 280, 6);
 //}
+
+//void drawCircle(int x, int radius, int level) {                    
+  //float tt = 126 * level/4.0;
+  //fill(tt);
+  //ellipse(x, height/2, radius*2, radius*2);      
+  //if(level > 1) {
+    //level = level - 1;
+    //drawCircle(x - radius/2, radius/2, level);
+    //drawCircle(x + radius/2, radius/2, level);
+  //}
+//}
+
+
 
 //void draw() {
   
