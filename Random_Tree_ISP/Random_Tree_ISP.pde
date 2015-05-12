@@ -1,76 +1,52 @@
-;// Robert Kurdyak
+// Robert Kurdyak
 // March 27, 2015
 
-//void setup() {
-  //size(640, 360);
-  //noStroke();
-  //noLoop();
-//}
+float counterClockwise = random(10, 50); 
+float clockwise = random(-40, -80); // Random values for the branch positions
 
-//void draw() {
-  //drawCircle(width/2, 280, 6);
-//}
-
-//void drawCircle(int x, int radius, int level) {                    
-  //float tt = 126 * level/4.0;
-  //fill(tt);
-  //ellipse(x, height/2, radius*2, radius*2);      
-  //if(level > 1) {
-    //level = level - 1;
-    //drawCircle(x - radius/2, radius/2, level);
-    //drawCircle(x + radius/2, radius/2, level);
-  //}
-//}
-
-
-
-//void draw() {
-  
-float bigBranchLength = random(50, 70);
-float medBranchLength = random(20, 40);
-float smallBranchLength = random(5, 15);
-
-
-int [] bigBranchX = new int[8]; 
-int [] bigBranchY = new int[8]; // x- and y-values for the big branches
-// Make the trunk
 
 void setup() {
-  size(300, 300);
-  // The curved parts of the trunk base
-  noFill();
-  beginShape();
-  curveVertex(120, 300);
-  curveVertex(120, 300);
-  curveVertex(122, 298);
-  curveVertex(124, 296);
-  curveVertex(126, 291);
-  curveVertex(128, 285);
-  curveVertex(130, 270);
-  curveVertex(130, 270);
-  endShape();
 
-  beginShape();
-  curveVertex(170, 270);
-  curveVertex(170, 270);
-  curveVertex(172, 285);
-  curveVertex(174, 291);
-  curveVertex(176, 296);
-  curveVertex(178, 298);
-  curveVertex(180, 300);
-  curveVertex(180, 300);
-  endShape();
-  
-  
-  // The mid part of the trunk
-  
-  line(130, 270, 135, 150);
-  
-  line(170, 270, 165, 150);
-  
+  colorMode(HSB, 360, 100, 100); // Using colors to identify which parts of the tree are which
+  size(700, 700);
+
+
+  translate(width/2, height); // Moving the origin point to the bottom of the area, halfway across
+  scale(1, -1); // 
+  rotate(radians(90)); // rotating the graphic 90º counter clockwise, so it faces 
+
+  myLine(0, 0, 100, 0, 10);
 }
 
-void draw() {
- 
+
+void myLine(float x1, float y1, float x2, float y2, float exitValue) {
+pushMatrix(); // pushMatrix saves the current coordinate system, aka translate and rotate products
+  stroke(0, 80, 90); // coloring the trunk red
+  // The trunk
+  line(x1, y1, x2, y2);    // Create the trunk, using the myLine variables
+  translate(x2, y2);      // Put the origin at the end point of the trunk
   
+
+  rotate(radians(counterClockwise)); // rotate the axis a random value counter-clockwise
+  // Draw the left branch
+  stroke(120, 80, 90); // coloring the left branch green
+  line(x1, y1, x2 * 0.7, y2); // Draw a branch, using the myCircle values
+  translate(x2 * 0.7, y2); // Set the origin point at the the endpoint of the left branch
+  // Recurse if x2 is greater than 20
+  if (x2 > exitValue) {
+    myLine(x1, y1, x2 * 0.7, y2, exitValue);
+  }
+  translate( - x2 * 0.7, - y2); // move the origin point to the endpoint of myLine
+  
+  //Draw the right branch
+  
+  rotate(radians(clockwise)); // Rotate the axis a random value clockwise
+  stroke(240, 80, 90);
+  line(x1, y1, x2 * 0.7, y2); //Make the right branch
+  translate(x2 * 0.7, y2); // Move the origin point to the end of the right branch
+  // Recurse only if x2 is greater than 20
+  if (x2 > exitValue) {
+    myLine(x1, y1, x2 * 0.7, y2, exitValue);
+  }
+  popMatrix(); // popMatrix restores the earlier coordinate system
 }
